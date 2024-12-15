@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftLedger.API", "src\LiftLedger.API\LiftLedger.API.csproj", "{D6F8AE25-D30C-45FE-B7BE-71D775505A65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftLedger.Contracts", "src\LiftLedger.Contracts\LiftLedger.Contracts.csproj", "{62204894-1954-4A6B-8DB5-BC5A0C607EA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "build", "build\build.csproj", "{59402F31-6E5C-41EF-ACC8-600CF2FE253A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiftLedger.Mobile", "src\LiftLedger.Mobile\LiftLedger.Mobile.csproj", "{C24586F5-341F-43C1-8FDE-A0EF8558935A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59402F31-6E5C-41EF-ACC8-600CF2FE253A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59402F31-6E5C-41EF-ACC8-600CF2FE253A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F8AE25-D30C-45FE-B7BE-71D775505A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F8AE25-D30C-45FE-B7BE-71D775505A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F8AE25-D30C-45FE-B7BE-71D775505A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F8AE25-D30C-45FE-B7BE-71D775505A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62204894-1954-4A6B-8DB5-BC5A0C607EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62204894-1954-4A6B-8DB5-BC5A0C607EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62204894-1954-4A6B-8DB5-BC5A0C607EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62204894-1954-4A6B-8DB5-BC5A0C607EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C24586F5-341F-43C1-8FDE-A0EF8558935A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C24586F5-341F-43C1-8FDE-A0EF8558935A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C24586F5-341F-43C1-8FDE-A0EF8558935A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C24586F5-341F-43C1-8FDE-A0EF8558935A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

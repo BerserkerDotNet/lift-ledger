@@ -1,0 +1,217 @@
+V |                      | ArgumentsFromParametersFile.OnBuildCreated (150)
+V |                      | HandleReSharperSurrogateArguments.OnBuildCreated (150)
+V |                      | InjectParameterValues.OnBuildCreated (100)
+V |                      | HandleShellCompletion.OnBuildCreated (75)
+V |                      | GenerateBuildServerConfigurations.OnBuildCreated (50)
+V |                      | InvokeBuildServerConfigurationGeneration.OnBuildCreated (45)
+V |                      | UpdateNotification.OnBuildCreated (10)
+V |                      | UnsetVisualStudioEnvironmentVariables.OnBuildCreated (0)
+V |                      | HandleVisualStudioDebugging.OnBuildCreated (0)
+V |                      | EventInvoker.OnBuildCreated (-3.4028235E+38)
+V |                      | HandlePlanRequests.OnBuildInitialized (10)
+V |                      | HandleHelpRequests.OnBuildInitialized (5)
+V |                      | Telemetry.OnBuildInitialized (0)
+V |                      | Sending BuildStarted telemetry event ...
+V |                      |   build_components         = 
+V |                      |   build_type               = Project
+V |                      |   compile_time             = 10
+V |                      |   config_generators        = 
+V |                      |   host                     = Rider
+V |                      |   num_custom_components    = 0
+V |                      |   num_custom_extensions    = 0
+V |                      |   num_partitioned_targets  = 0
+V |                      |   num_secrets              = 0
+V |                      |   num_targets              = 4
+V |                      |   os_architecture          = X64
+V |                      |   os_platform              = Windows
+V |                      |   target_framework         = .NETCoreApp,Version=v9.0
+V |                      |   version_dotnet_sdk       = 9.0.101
+V |                      |   version_nuke_common      = 9.0.3
+V |                      |   version_nuke_global_tool = 9.0.3
+V |                      | InjectNonParameterValues.OnBuildInitialized (-100)
+V |                      | EventInvoker.OnBuildInitialized (-3.4028235E+38)
+V | PublishMobile        | EventInvoker.OnTargetRunning (-3.4028235E+38)
+I | PublishMobile        | > "C:\Program Files\dotnet\dotnet.exe" publish I:\Programs\CSharp\LiftLedger\src\LiftLedger.Mobile\LiftLedger.Mobile.csproj --framework net9.0-android
+V | PublishMobile        | @ I:\Programs\CSharp\LiftLedger
+D | PublishMobile        |   Determining projects to restore...
+D | PublishMobile        |   Restored I:\Programs\CSharp\LiftLedger\src\LiftLedger.Mobile\LiftLedger.Mobile.csproj (in 455 ms).
+D | PublishMobile        |   LiftLedger.Mobile -> I:\Programs\CSharp\LiftLedger\src\LiftLedger.Mobile\bin\Release\net9.0-android\LiftLedger.Mobile.dll
+D | PublishMobile        |   Optimizing assemblies for size may change the behavior of the app. Be sure to test after publishing. See: https://aka.ms/dotnet-illink
+D | PublishMobile        |   Optimizing assemblies for size. This process might take a while.
+D | PublishMobile        |   Optimizing assemblies for size may change the behavior of the app. Be sure to test after publishing. See: https://aka.ms/dotnet-illink
+D | PublishMobile        |   Optimizing assemblies for size. This process might take a while.
+D | PublishMobile        |   [1/84] _Microsoft.Android.Resource.Designer.dll -> _Microsoft.Android.Resource.Designer.dll.so
+D | PublishMobile        |   [2/84] Microsoft.Extensions.Logging.dll -> Microsoft.Extensions.Logging.dll.so
+D | PublishMobile        |   [4/84] LiftLedger.Mobile.dll -> LiftLedger.Mobile.dll.so
+D | PublishMobile        |   [3/84] Microsoft.Extensions.Logging.Abstractions.dll -> Microsoft.Extensions.Logging.Abstractions.dll.so
+D | PublishMobile        |   [5/84] Microsoft.Extensions.Configuration.Abstractions.dll -> Microsoft.Extensions.Configuration.Abstractions.dll.so
+D | PublishMobile        |   [6/84] Microsoft.Extensions.Primitives.dll -> Microsoft.Extensions.Primitives.dll.so
+D | PublishMobile        |   [7/84] Microsoft.Extensions.Configuration.dll -> Microsoft.Extensions.Configuration.dll.so
+D | PublishMobile        |   [8/84] Microsoft.Extensions.DependencyInjection.dll -> Microsoft.Extensions.DependencyInjection.dll.so
+D | PublishMobile        |   [9/84] Microsoft.Extensions.DependencyInjection.Abstractions.dll -> Microsoft.Extensions.DependencyInjection.Abstractions.dll.so
+D | PublishMobile        |   [10/84] Microsoft.Extensions.Options.dll -> Microsoft.Extensions.Options.dll.so
+D | PublishMobile        |   [11/84] Microsoft.Maui.Controls.Xaml.dll -> Microsoft.Maui.Controls.Xaml.dll.so
+D | PublishMobile        |   [1/84] _Microsoft.Android.Resource.Designer.dll -> _Microsoft.Android.Resource.Designer.dll.so
+D | PublishMobile        |   [12/84] Microsoft.Maui.Essentials.dll -> Microsoft.Maui.Essentials.dll.so
+D | PublishMobile        |   [13/84] Xamarin.AndroidX.AppCompat.AppCompatResources.dll -> Xamarin.AndroidX.AppCompat.AppCompatResources.dll.so
+D | PublishMobile        |   [2/84] LiftLedger.Mobile.dll -> LiftLedger.Mobile.dll.so
+D | PublishMobile        |   [3/84] Microsoft.Extensions.Configuration.dll -> Microsoft.Extensions.Configuration.dll.so
+D | PublishMobile        |   [14/84] Microsoft.Maui.Graphics.dll -> Microsoft.Maui.Graphics.dll.so
+D | PublishMobile        |   [15/84] Xamarin.AndroidX.Collection.Jvm.dll -> Xamarin.AndroidX.Collection.Jvm.dll.so
+D | PublishMobile        |   [4/84] Microsoft.Extensions.Configuration.Abstractions.dll -> Microsoft.Extensions.Configuration.Abstractions.dll.so
+D | PublishMobile        |   [16/84] Xamarin.AndroidX.CardView.dll -> Xamarin.AndroidX.CardView.dll.so
+D | PublishMobile        |   [17/84] Xamarin.AndroidX.CoordinatorLayout.dll -> Xamarin.AndroidX.CoordinatorLayout.dll.so
+D | PublishMobile        |   [18/84] Microsoft.Maui.dll -> Microsoft.Maui.dll.so
+D | PublishMobile        |   [19/84] Xamarin.AndroidX.Activity.dll -> Xamarin.AndroidX.Activity.dll.so
+D | PublishMobile        |   [20/84] Xamarin.AndroidX.AppCompat.dll -> Xamarin.AndroidX.AppCompat.dll.so
+D | PublishMobile        |   [21/84] Xamarin.AndroidX.CursorAdapter.dll -> Xamarin.AndroidX.CursorAdapter.dll.so
+D | PublishMobile        |   [22/84] Xamarin.AndroidX.Core.dll -> Xamarin.AndroidX.Core.dll.so
+D | PublishMobile        |   [23/84] Xamarin.AndroidX.CustomView.dll -> Xamarin.AndroidX.CustomView.dll.so
+D | PublishMobile        |   [24/84] Xamarin.AndroidX.Lifecycle.LiveData.Core.dll -> Xamarin.AndroidX.Lifecycle.LiveData.Core.dll.so
+D | PublishMobile        |   [25/84] Xamarin.AndroidX.DrawerLayout.dll -> Xamarin.AndroidX.DrawerLayout.dll.so
+D | PublishMobile        |   [5/84] Microsoft.Extensions.DependencyInjection.dll -> Microsoft.Extensions.DependencyInjection.dll.so
+D | PublishMobile        |   [26/84] Xamarin.AndroidX.Fragment.dll -> Xamarin.AndroidX.Fragment.dll.so
+D | PublishMobile        |   [27/84] Xamarin.AndroidX.Lifecycle.Common.Jvm.dll -> Xamarin.AndroidX.Lifecycle.Common.Jvm.dll.so
+D | PublishMobile        |   [28/84] Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll -> Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll.so
+D | PublishMobile        |   [29/84] Xamarin.AndroidX.Loader.dll -> Xamarin.AndroidX.Loader.dll.so
+D | PublishMobile        |   [30/84] Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll -> Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll.so
+D | PublishMobile        |   [31/84] Xamarin.AndroidX.Navigation.Common.dll -> Xamarin.AndroidX.Navigation.Common.dll.so
+D | PublishMobile        |   [32/84] Xamarin.AndroidX.Navigation.Fragment.dll -> Xamarin.AndroidX.Navigation.Fragment.dll.so
+D | PublishMobile        |   [33/84] Xamarin.AndroidX.Navigation.UI.dll -> Xamarin.AndroidX.Navigation.UI.dll.so
+D | PublishMobile        |   [34/84] Xamarin.AndroidX.Navigation.Runtime.dll -> Xamarin.AndroidX.Navigation.Runtime.dll.so
+D | PublishMobile        |   [6/84] Microsoft.Extensions.DependencyInjection.Abstractions.dll -> Microsoft.Extensions.DependencyInjection.Abstractions.dll.so
+D | PublishMobile        |   [35/84] Xamarin.AndroidX.SwipeRefreshLayout.dll -> Xamarin.AndroidX.SwipeRefreshLayout.dll.so
+D | PublishMobile        |   [36/84] Xamarin.AndroidX.RecyclerView.dll -> Xamarin.AndroidX.RecyclerView.dll.so
+D | PublishMobile        |   [37/84] Xamarin.AndroidX.SavedState.dll -> Xamarin.AndroidX.SavedState.dll.so
+D | PublishMobile        |   [38/84] Xamarin.AndroidX.ViewPager.dll -> Xamarin.AndroidX.ViewPager.dll.so
+D | PublishMobile        |   [39/84] Xamarin.AndroidX.ViewPager2.dll -> Xamarin.AndroidX.ViewPager2.dll.so
+D | PublishMobile        |   [40/84] Xamarin.Kotlin.StdLib.dll -> Xamarin.Kotlin.StdLib.dll.so
+D | PublishMobile        |   [41/84] Xamarin.KotlinX.Coroutines.Core.Jvm.dll -> Xamarin.KotlinX.Coroutines.Core.Jvm.dll.so
+D | PublishMobile        |   [7/84] Microsoft.Extensions.Logging.dll -> Microsoft.Extensions.Logging.dll.so
+D | PublishMobile        |   [42/84] Xamarin.Google.Android.Material.dll -> Xamarin.Google.Android.Material.dll.so
+D | PublishMobile        |   [43/84] System.Collections.Specialized.dll -> System.Collections.Specialized.dll.so
+D | PublishMobile        |   [44/84] System.Collections.NonGeneric.dll -> System.Collections.NonGeneric.dll.so
+D | PublishMobile        |   [45/84] Xamarin.KotlinX.Serialization.Core.Jvm.dll -> Xamarin.KotlinX.Serialization.Core.Jvm.dll.so
+D | PublishMobile        |   [46/84] System.Collections.Concurrent.dll -> System.Collections.Concurrent.dll.so
+D | PublishMobile        |   [47/84] System.ComponentModel.Primitives.dll -> System.ComponentModel.Primitives.dll.so
+D | PublishMobile        |   [8/84] Microsoft.Extensions.Logging.Abstractions.dll -> Microsoft.Extensions.Logging.Abstractions.dll.so
+D | PublishMobile        |   [48/84] System.Collections.dll -> System.Collections.dll.so
+D | PublishMobile        |   [49/84] System.ComponentModel.TypeConverter.dll -> System.ComponentModel.TypeConverter.dll.so
+D | PublishMobile        |   [50/84] Microsoft.Maui.Controls.dll -> Microsoft.Maui.Controls.dll.so
+D | PublishMobile        |   [51/84] System.Console.dll -> System.Console.dll.so
+D | PublishMobile        |   [52/84] System.ComponentModel.dll -> System.ComponentModel.dll.so
+D | PublishMobile        |   [53/84] System.Diagnostics.DiagnosticSource.dll -> System.Diagnostics.DiagnosticSource.dll.so
+D | PublishMobile        |   [54/84] System.Formats.Asn1.dll -> System.Formats.Asn1.dll.so
+D | PublishMobile        |   [55/84] System.IO.Compression.Brotli.dll -> System.IO.Compression.Brotli.dll.so
+D | PublishMobile        |   [56/84] System.IO.Pipelines.dll -> System.IO.Pipelines.dll.so
+D | PublishMobile        |   [57/84] System.IO.Compression.dll -> System.IO.Compression.dll.so
+D | PublishMobile        |   [9/84] Microsoft.Extensions.Options.dll -> Microsoft.Extensions.Options.dll.so
+D | PublishMobile        |   [58/84] System.Net.Primitives.dll -> System.Net.Primitives.dll.so
+D | PublishMobile        |   [59/84] System.Numerics.Vectors.dll -> System.Numerics.Vectors.dll.so
+D | PublishMobile        |   [60/84] System.ObjectModel.dll -> System.ObjectModel.dll.so
+D | PublishMobile        |   [10/84] Microsoft.Extensions.Primitives.dll -> Microsoft.Extensions.Primitives.dll.so
+D | PublishMobile        |   [61/84] System.Linq.dll -> System.Linq.dll.so
+D | PublishMobile        |   [62/84] System.Net.Requests.dll -> System.Net.Requests.dll.so
+D | PublishMobile        |   [63/84] System.Memory.dll -> System.Memory.dll.so
+D | PublishMobile        |   [64/84] System.Net.Http.dll -> System.Net.Http.dll.so
+D | PublishMobile        |   [65/84] System.Runtime.Numerics.dll -> System.Runtime.Numerics.dll.so
+D | PublishMobile        |   [66/84] System.Runtime.dll -> System.Runtime.dll.so
+D | PublishMobile        |   [67/84] System.Private.Uri.dll -> System.Private.Uri.dll.so
+D | PublishMobile        |   [70/84] System.Runtime.Loader.dll -> System.Runtime.Loader.dll.so
+D | PublishMobile        |   [68/84] System.Private.Xml.dll -> System.Private.Xml.dll.so
+D | PublishMobile        |   [69/84] System.Runtime.InteropServices.dll -> System.Runtime.InteropServices.dll.so
+D | PublishMobile        |   [71/84] System.Linq.Expressions.dll -> System.Linq.Expressions.dll.so
+D | PublishMobile        |   [72/84] System.Security.Cryptography.dll -> System.Security.Cryptography.dll.so
+D | PublishMobile        |   [73/84] System.Text.Encodings.Web.dll -> System.Text.Encodings.Web.dll.so
+D | PublishMobile        |   [74/84] System.Threading.dll -> System.Threading.dll.so
+D | PublishMobile        |   [75/84] System.dll -> System.dll.so
+D | PublishMobile        |   [76/84] System.Web.HttpUtility.dll -> System.Web.HttpUtility.dll.so
+D | PublishMobile        |   [77/84] System.Text.RegularExpressions.dll -> System.Text.RegularExpressions.dll.so
+D | PublishMobile        |   [78/84] Mono.Android.Runtime.dll -> Mono.Android.Runtime.dll.so
+D | PublishMobile        |   [79/84] System.Xml.ReaderWriter.dll -> System.Xml.ReaderWriter.dll.so
+D | PublishMobile        |   [80/84] Java.Interop.dll -> Java.Interop.dll.so
+D | PublishMobile        |   [81/84] System.Threading.Thread.dll -> System.Threading.Thread.dll.so
+D | PublishMobile        |   [82/84] System.Text.Json.dll -> System.Text.Json.dll.so
+D | PublishMobile        |   [83/84] Mono.Android.dll -> Mono.Android.dll.so
+D | PublishMobile        |   [11/84] Microsoft.Maui.Controls.dll -> Microsoft.Maui.Controls.dll.so
+D | PublishMobile        |   [12/84] Microsoft.Maui.Controls.Xaml.dll -> Microsoft.Maui.Controls.Xaml.dll.so
+D | PublishMobile        |   [13/84] Microsoft.Maui.dll -> Microsoft.Maui.dll.so
+D | PublishMobile        |   [84/84] System.Private.CoreLib.dll -> System.Private.CoreLib.dll.so
+D | PublishMobile        |   [14/84] Microsoft.Maui.Essentials.dll -> Microsoft.Maui.Essentials.dll.so
+D | PublishMobile        |   [15/84] Microsoft.Maui.Graphics.dll -> Microsoft.Maui.Graphics.dll.so
+D | PublishMobile        |   [16/84] Xamarin.AndroidX.Activity.dll -> Xamarin.AndroidX.Activity.dll.so
+D | PublishMobile        |   [17/84] Xamarin.AndroidX.AppCompat.dll -> Xamarin.AndroidX.AppCompat.dll.so
+D | PublishMobile        |   [18/84] Xamarin.AndroidX.AppCompat.AppCompatResources.dll -> Xamarin.AndroidX.AppCompat.AppCompatResources.dll.so
+D | PublishMobile        |   [19/84] Xamarin.AndroidX.CardView.dll -> Xamarin.AndroidX.CardView.dll.so
+D | PublishMobile        |   [20/84] Xamarin.AndroidX.Collection.Jvm.dll -> Xamarin.AndroidX.Collection.Jvm.dll.so
+D | PublishMobile        |   [21/84] Xamarin.AndroidX.CoordinatorLayout.dll -> Xamarin.AndroidX.CoordinatorLayout.dll.so
+D | PublishMobile        |   [22/84] Xamarin.AndroidX.Core.dll -> Xamarin.AndroidX.Core.dll.so
+D | PublishMobile        |   [23/84] Xamarin.AndroidX.CursorAdapter.dll -> Xamarin.AndroidX.CursorAdapter.dll.so
+D | PublishMobile        |   [24/84] Xamarin.AndroidX.CustomView.dll -> Xamarin.AndroidX.CustomView.dll.so
+D | PublishMobile        |   [25/84] Xamarin.AndroidX.DrawerLayout.dll -> Xamarin.AndroidX.DrawerLayout.dll.so
+D | PublishMobile        |   [26/84] Xamarin.AndroidX.Fragment.dll -> Xamarin.AndroidX.Fragment.dll.so
+D | PublishMobile        |   [27/84] Xamarin.AndroidX.Lifecycle.Common.Jvm.dll -> Xamarin.AndroidX.Lifecycle.Common.Jvm.dll.so
+D | PublishMobile        |   [28/84] Xamarin.AndroidX.Lifecycle.LiveData.Core.dll -> Xamarin.AndroidX.Lifecycle.LiveData.Core.dll.so
+D | PublishMobile        |   [29/84] Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll -> Xamarin.AndroidX.Lifecycle.ViewModel.Android.dll.so
+D | PublishMobile        |   [30/84] Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll -> Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll.so
+D | PublishMobile        |   [31/84] Xamarin.AndroidX.Loader.dll -> Xamarin.AndroidX.Loader.dll.so
+D | PublishMobile        |   [32/84] Xamarin.AndroidX.Navigation.Common.dll -> Xamarin.AndroidX.Navigation.Common.dll.so
+D | PublishMobile        |   [33/84] Xamarin.AndroidX.Navigation.Fragment.dll -> Xamarin.AndroidX.Navigation.Fragment.dll.so
+D | PublishMobile        |   [34/84] Xamarin.AndroidX.Navigation.Runtime.dll -> Xamarin.AndroidX.Navigation.Runtime.dll.so
+D | PublishMobile        |   [35/84] Xamarin.AndroidX.Navigation.UI.dll -> Xamarin.AndroidX.Navigation.UI.dll.so
+D | PublishMobile        |   [36/84] Xamarin.AndroidX.RecyclerView.dll -> Xamarin.AndroidX.RecyclerView.dll.so
+D | PublishMobile        |   [37/84] Xamarin.AndroidX.SavedState.dll -> Xamarin.AndroidX.SavedState.dll.so
+D | PublishMobile        |   [38/84] Xamarin.AndroidX.SwipeRefreshLayout.dll -> Xamarin.AndroidX.SwipeRefreshLayout.dll.so
+D | PublishMobile        |   [39/84] Xamarin.AndroidX.ViewPager.dll -> Xamarin.AndroidX.ViewPager.dll.so
+D | PublishMobile        |   [40/84] Xamarin.AndroidX.ViewPager2.dll -> Xamarin.AndroidX.ViewPager2.dll.so
+D | PublishMobile        |   [41/84] Xamarin.Google.Android.Material.dll -> Xamarin.Google.Android.Material.dll.so
+D | PublishMobile        |   [42/84] Xamarin.Kotlin.StdLib.dll -> Xamarin.Kotlin.StdLib.dll.so
+D | PublishMobile        |   [43/84] Xamarin.KotlinX.Coroutines.Core.Jvm.dll -> Xamarin.KotlinX.Coroutines.Core.Jvm.dll.so
+D | PublishMobile        |   [44/84] Xamarin.KotlinX.Serialization.Core.Jvm.dll -> Xamarin.KotlinX.Serialization.Core.Jvm.dll.so
+D | PublishMobile        |   [45/84] System.Collections.Concurrent.dll -> System.Collections.Concurrent.dll.so
+D | PublishMobile        |   [46/84] System.Collections.NonGeneric.dll -> System.Collections.NonGeneric.dll.so
+D | PublishMobile        |   [47/84] System.Collections.Specialized.dll -> System.Collections.Specialized.dll.so
+D | PublishMobile        |   [48/84] System.Collections.dll -> System.Collections.dll.so
+D | PublishMobile        |   [49/84] System.ComponentModel.Primitives.dll -> System.ComponentModel.Primitives.dll.so
+D | PublishMobile        |   [50/84] System.ComponentModel.TypeConverter.dll -> System.ComponentModel.TypeConverter.dll.so
+D | PublishMobile        |   [51/84] System.ComponentModel.dll -> System.ComponentModel.dll.so
+D | PublishMobile        |   [52/84] System.Console.dll -> System.Console.dll.so
+D | PublishMobile        |   [53/84] System.Diagnostics.DiagnosticSource.dll -> System.Diagnostics.DiagnosticSource.dll.so
+D | PublishMobile        |   [54/84] System.Formats.Asn1.dll -> System.Formats.Asn1.dll.so
+D | PublishMobile        |   [55/84] System.IO.Compression.Brotli.dll -> System.IO.Compression.Brotli.dll.so
+D | PublishMobile        |   [56/84] System.IO.Compression.dll -> System.IO.Compression.dll.so
+D | PublishMobile        |   [57/84] System.IO.Pipelines.dll -> System.IO.Pipelines.dll.so
+D | PublishMobile        |   [58/84] System.Linq.Expressions.dll -> System.Linq.Expressions.dll.so
+D | PublishMobile        |   [59/84] System.Linq.dll -> System.Linq.dll.so
+D | PublishMobile        |   [60/84] System.Memory.dll -> System.Memory.dll.so
+D | PublishMobile        |   [61/84] System.Net.Http.dll -> System.Net.Http.dll.so
+D | PublishMobile        |   [62/84] System.Net.Primitives.dll -> System.Net.Primitives.dll.so
+D | PublishMobile        |   [63/84] System.Net.Requests.dll -> System.Net.Requests.dll.so
+D | PublishMobile        |   [64/84] System.Numerics.Vectors.dll -> System.Numerics.Vectors.dll.so
+D | PublishMobile        |   [65/84] System.ObjectModel.dll -> System.ObjectModel.dll.so
+D | PublishMobile        |   [66/84] System.Private.Uri.dll -> System.Private.Uri.dll.so
+D | PublishMobile        |   [67/84] System.Private.Xml.dll -> System.Private.Xml.dll.so
+D | PublishMobile        |   [68/84] System.Runtime.InteropServices.dll -> System.Runtime.InteropServices.dll.so
+D | PublishMobile        |   [69/84] System.Runtime.Loader.dll -> System.Runtime.Loader.dll.so
+D | PublishMobile        |   [70/84] System.Runtime.Numerics.dll -> System.Runtime.Numerics.dll.so
+D | PublishMobile        |   [71/84] System.Runtime.dll -> System.Runtime.dll.so
+D | PublishMobile        |   [72/84] System.Security.Cryptography.dll -> System.Security.Cryptography.dll.so
+D | PublishMobile        |   [73/84] System.Text.Encodings.Web.dll -> System.Text.Encodings.Web.dll.so
+D | PublishMobile        |   [74/84] System.Text.Json.dll -> System.Text.Json.dll.so
+D | PublishMobile        |   [75/84] System.Text.RegularExpressions.dll -> System.Text.RegularExpressions.dll.so
+D | PublishMobile        |   [76/84] System.Threading.Thread.dll -> System.Threading.Thread.dll.so
+D | PublishMobile        |   [77/84] System.Threading.dll -> System.Threading.dll.so
+D | PublishMobile        |   [78/84] System.Web.HttpUtility.dll -> System.Web.HttpUtility.dll.so
+D | PublishMobile        |   [79/84] System.Xml.ReaderWriter.dll -> System.Xml.ReaderWriter.dll.so
+D | PublishMobile        |   [80/84] System.dll -> System.dll.so
+D | PublishMobile        |   [81/84] Java.Interop.dll -> Java.Interop.dll.so
+D | PublishMobile        |   [82/84] Mono.Android.Runtime.dll -> Mono.Android.Runtime.dll.so
+D | PublishMobile        |   [83/84] Mono.Android.dll -> Mono.Android.dll.so
+D | PublishMobile        |   [84/84] System.Private.CoreLib.dll -> System.Private.CoreLib.dll.so
+D | PublishMobile        | 
+D | PublishMobile        | Workload updates are available. Run `dotnet workload list` for more information.
+V | PublishMobile        | Telemetry.OnTargetSucceeded (0)
+V | PublishMobile        | EventInvoker.OnTargetSucceeded (-3.4028235E+38)
+V |                      | UpdateNotification.OnBuildFinished (10)
+V |                      | SerializeBuildServerState.OnBuildFinished (0)
+V |                      | EventInvoker.OnBuildFinished (-3.4028235E+38)
