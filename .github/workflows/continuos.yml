@@ -19,7 +19,7 @@ name: continuos
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   ubuntu-latest:
