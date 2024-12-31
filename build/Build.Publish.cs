@@ -45,15 +45,13 @@ partial class Build
         .After(Test)
         .Executes(() =>
         {
-            DotNetWorkloadRestore(_ => _
-                .SetProject(Solution.src.LiftLedger_Mobile));
-            
             DotNetPublish(_ => _
                 .SetProject(Solution.src.LiftLedger_Mobile)
                 .SetFramework("net9.0-android"));
         });
 
     Target AzLogin => _ => _
+        .After(Test)
         .Requires(() => AzCli)
         .Requires(() => AcrServer)
         .Requires(() => AzureSPNCreds)

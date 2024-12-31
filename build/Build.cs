@@ -57,6 +57,9 @@ partial class Build : NukeBuild
     Target Restore => _ => _
         .Executes(() =>
         {
+            DotNetWorkloadRestore(_ => _
+                .SetProject(Solution));
+            
             DotNetRestore(_ => _
                 .SetProjectFile(Solution));
         });
