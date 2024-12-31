@@ -42,8 +42,12 @@ partial class Build
     readonly Tool AzCli;
     
     Target PublishMobile => _ => _
+        .After(Test)
         .Executes(() =>
         {
+            DotNetWorkloadRestore(_ => _
+                .SetProject(Solution.src.LiftLedger_Mobile));
+            
             DotNetPublish(_ => _
                 .SetProject(Solution.src.LiftLedger_Mobile)
                 .SetFramework("net9.0-android"));
@@ -65,6 +69,7 @@ partial class Build
     Target PublishAPI => _ => _
         .DependsOn(ProvisionAzureResources)
         .DependsOn(AzLogin)
+        .After(Test)
         .Requires(() => AzCli)
         .Requires(() => DeploymentSuffix)
         .Requires(() => AcrServer)
