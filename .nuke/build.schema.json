@@ -24,10 +24,15 @@
     "ExecutableTarget": {
       "type": "string",
       "enum": [
+        "AzLogin",
         "Clean",
         "Compile",
+        "ProvisionAzureResources",
+        "PublishAPI",
         "PublishMobile",
-        "Restore"
+        "Restore",
+        "Test",
+        "UpdateAzureContainerApp"
       ]
     },
     "Verbosity": {
@@ -101,6 +106,15 @@
   "allOf": [
     {
       "properties": {
+        "AcrServer": {
+          "type": "string",
+          "description": "Acr login server"
+        },
+        "AzureSPNCreds": {
+          "type": "string",
+          "description": "Credentials for Azure SPN",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
         "Configuration": {
           "type": "string",
           "description": "Configuration to build - Default is 'Debug' (local) or 'Release' (server)",
@@ -108,6 +122,18 @@
             "Debug",
             "Release"
           ]
+        },
+        "DeploymentSuffix": {
+          "type": "string",
+          "description": "Suffix to add to Azure resources"
+        },
+        "PreventContainerAppUpdate": {
+          "type": "boolean",
+          "description": "Should update container app"
+        },
+        "PublishTestResults": {
+          "type": "boolean",
+          "description": "Should publish test results to GitHub"
         },
         "Solution": {
           "type": "string",
