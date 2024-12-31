@@ -21,7 +21,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [GitHubActions(
     "continuos",
     GitHubActionsImage.UbuntuLatest,
-    OnPushBranches = new []{ "main" },
+    OnPushBranches = new []{ "master" },
     ImportSecrets = new []{ nameof(AzureSPNCreds)},
     InvokedTargets = new[] { nameof(Compile), nameof(Test), nameof(PublishMobile), nameof(PublishAPI) })]
 [GitHubActions(
