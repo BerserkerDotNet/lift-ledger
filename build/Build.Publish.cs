@@ -43,6 +43,7 @@ partial class Build
     
     Target PublishMobile => _ => _
         .After(Test)
+        .DependsOn(Compile)
         .Executes(() =>
         {
             DotNetPublish(_ => _
