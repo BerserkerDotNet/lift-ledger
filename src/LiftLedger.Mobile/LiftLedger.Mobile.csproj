@@ -30,6 +30,7 @@
         
         <AcceptAndroidSDKLicenses>True</AcceptAndroidSDKLicenses>
         <AndroidSdkPath>%LocalAppData%\Android\Sdk</AndroidSdkPath>
+        <AndroidSdkDirectory>%LocalAppData%\Android\Sdk</AndroidSdkDirectory>
     </PropertyGroup>
 
     <ItemGroup>
