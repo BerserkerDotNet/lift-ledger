@@ -82,7 +82,6 @@ partial class Build : NukeBuild
         {
             DotNetTest(_ => _
                     .EnableNoRestore()
-                    .EnableNoBuild()
                     .SetProjectFile(Solution)
                     .When(_=> PublishTestResults, _ => _
                         .SetLoggers("trx")
