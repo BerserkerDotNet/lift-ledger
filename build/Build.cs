@@ -74,6 +74,16 @@ partial class Build : NukeBuild
                 .SetProjectFile(Solution.src.LiftLedger_API));
 
             DotNet($"build {Solution.src.LiftLedger_Mobile} -t:InstallAndroidDependencies -f net9.0-android --no-restore");
+            
+            DotNetBuild(_ => _
+                .EnableNoRestore()
+                .SetFramework("net9.0")
+                .SetProjectFile(Solution.tests.LiftLedger_App_Tests));
+            
+            DotNetBuild(_ => _
+                .EnableNoRestore()
+                .SetFramework("net9.0")
+                .SetProjectFile(Solution.tests.LiftLedger_API_Tests));
         });
     
     Target Test => _ => _
@@ -82,6 +92,7 @@ partial class Build : NukeBuild
         {
             DotNetTest(_ => _
                     .EnableNoRestore()
+                    .EnableNoBuild()
                     .SetProjectFile(Solution)
                     .When(_=> PublishTestResults, _ => _
                         .SetLoggers("trx")
