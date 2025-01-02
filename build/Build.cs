@@ -73,7 +73,7 @@ partial class Build : NukeBuild
                 .SetFramework("net9.0")
                 .SetProjectFile(Solution.src.LiftLedger_API));
 
-            DotNet($"build {Solution.src.LiftLedger_Mobile} -t:InstallAndroidDependencies -f:net9.0-android -p:AcceptAndroidSDKLicenses=True --no-restore");
+            DotNet($"build {Solution.src.LiftLedger_Mobile} -t:InstallAndroidDependencies -p:AcceptAndroidSDKLicenses=True -f net9.0-android --no-restore");
         });
     
     Target Test => _ => _
