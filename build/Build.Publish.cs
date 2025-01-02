@@ -47,6 +47,8 @@ partial class Build
         .Executes(() =>
         {
             DotNetPublish(_ => _
+                .EnableNoBuild()
+                .EnableNoRestore()
                 .SetProject(Solution.src.LiftLedger_Mobile)
                 .SetFramework("net9.0-android"));
         });
