@@ -46,7 +46,7 @@ partial class Build
         .DependsOn(Compile)
         .Executes(() =>
         {
-            DotNet($"publish {Solution.src.LiftLedger_Mobile} -p:AndroidSdkDirectory={AndroidSdkRoot} -f net9.0-android --no-restore");
+            DotNet($"publish {Solution.src.LiftLedger_Mobile} -f net9.0-android --no-restore");
         });
 
     Target AzLogin => _ => _

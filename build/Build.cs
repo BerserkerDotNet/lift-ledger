@@ -72,23 +72,14 @@ partial class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() =>
         {
-            DotNetBuild(_ => _
-                .EnableNoRestore()
-                .SetFramework("net9.0")
-                .SetProjectFile(Solution.src.LiftLedger_API));
+            if (Host is GitHubActions)
+            {
+                GitHubActions.Instance.WriteCommand("${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT \"platform-tools\"");
+            }
 
-            Log.Information($"SDK ROOT: {AndroidSdkRoot}");
-            DotNet($"build {Solution.src.LiftLedger_Mobile} -p:AndroidSdkDirectory={AndroidSdkRoot} -f net9.0-android --no-restore");
-            
             DotNetBuild(_ => _
                 .EnableNoRestore()
-                .SetFramework("net9.0")
-                .SetProjectFile(Solution.tests.LiftLedger_App_Tests));
-            
-            DotNetBuild(_ => _
-                .EnableNoRestore()
-                .SetFramework("net9.0")
-                .SetProjectFile(Solution.tests.LiftLedger_API_Tests));
+                .SetProjectFile(Solution));
         });
     
     Target Test => _ => _
