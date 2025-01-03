@@ -46,11 +46,7 @@ partial class Build
         .DependsOn(Compile)
         .Executes(() =>
         {
-            DotNetPublish(_ => _
-                .EnableNoBuild()
-                .EnableNoRestore()
-                .SetProject(Solution.src.LiftLedger_Mobile)
-                .SetFramework("net9.0-android"));
+            DotNet($"publish {Solution.src.LiftLedger_Mobile} -t:InstallAndroidDependencies -f net9.0-android --no-restore");
         });
 
     Target AzLogin => _ => _
