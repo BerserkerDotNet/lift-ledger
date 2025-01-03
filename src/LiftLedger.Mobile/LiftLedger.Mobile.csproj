@@ -26,11 +26,11 @@
         <AndroidSigningKeyStore>liftledger.keystore</AndroidSigningKeyStore>
         <AndroidSigningKeyPass>env:AndroidSigningPassword</AndroidSigningKeyPass>
         <AndroidSigningStorePass>env:AndroidSigningPassword</AndroidSigningStorePass>
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">32.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">33.0</SupportedOSPlatformVersion>
         
-        <AcceptAndroidSDKLicenses>True</AcceptAndroidSDKLicenses>
+        <!--<AcceptAndroidSDKLicenses>True</AcceptAndroidSDKLicenses>
         <AndroidSdkPath>%LocalAppData%\Android\Sdk</AndroidSdkPath>
-        <AndroidSdkDirectory>%LocalAppData%\Android\Sdk</AndroidSdkDirectory>
+        <AndroidSdkDirectory>%LocalAppData%\Android\Sdk</AndroidSdkDirectory>-->
     </PropertyGroup>
 
     <ItemGroup>

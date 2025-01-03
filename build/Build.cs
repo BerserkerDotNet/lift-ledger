@@ -9,6 +9,7 @@ using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Utilities.Collections;
+using Serilog;
 using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
@@ -46,6 +47,9 @@ partial class Build : NukeBuild
     [Parameter("Should publish test results to GitHub")]
     readonly bool PublishTestResults;
 
+    [Parameter("SDK root")]
+    readonly AbsolutePath AndroidSdkRoot;
+
     Target Clean => _ => _
         .Before(Restore)
         .Executes(() =>
@@ -73,7 +77,8 @@ partial class Build : NukeBuild
                 .SetFramework("net9.0")
                 .SetProjectFile(Solution.src.LiftLedger_API));
 
-            DotNet($"build {Solution.src.LiftLedger_Mobile} -t:InstallAndroidDependencies -f net9.0-android --no-restore");
+            Log.Information($"SDK ROOT: {AndroidSdkRoot}");
+            DotNet($"build {Solution.src.LiftLedger_Mobile} -p:AndroidSdkDirectory={AndroidSdkRoot} -f net9.0-android --no-restore");
             
             DotNetBuild(_ => _
                 .EnableNoRestore()
