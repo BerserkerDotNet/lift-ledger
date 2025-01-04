@@ -77,7 +77,7 @@ partial class Build : NukeBuild
         {
             if (Host is GitHubActions)
             {
-                SDKManager("--sdk_root=/usr/local/lib/android/sdk \"platform-tools\"");
+                SDKManager("platform-tools");
             }
 
             DotNetBuild(_ => _
