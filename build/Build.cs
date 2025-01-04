@@ -88,6 +88,7 @@ partial class Build : NukeBuild
             DotNetBuild(_ => _
                 .EnableNoRestore()
                 .SetConfiguration(Configuration)
+                .SetVerbosity(DotNetVerbosity.diagnostic)
                 .SetProjectFile(Solution));
         });
     
