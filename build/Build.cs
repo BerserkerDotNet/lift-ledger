@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI;
@@ -24,13 +25,13 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     GitHubActionsImage.UbuntuLatest,
     FetchDepth = 0,
     OnPushBranches = new []{ "master" },
-    ImportSecrets = new []{ nameof(AzureSPNCreds)},
+    ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore)},
     InvokedTargets = new[] { nameof(Compile), nameof(Test), nameof(PublishMobile), nameof(PublishAPI) })]
 [GitHubActions(
     "deploy",
     GitHubActionsImage.UbuntuLatest,
     On = new [] { GitHubActionsTrigger.WorkflowDispatch },
-    ImportSecrets = new []{ nameof(AzureSPNCreds)},
+    ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore)},
     AutoGenerate = false)]
 partial class Build : NukeBuild
 {
@@ -47,12 +48,13 @@ partial class Build : NukeBuild
     [Parameter("Should publish test results to GitHub")]
     readonly bool PublishTestResults;
 
-    [Parameter("SDK root")]
-    readonly AbsolutePath AndroidSdkRoot;
-
+    [Secret]
+    [Parameter("Base64 encoded keystore")]
+    readonly string EncodedKeystore;
+    
     [PathVariable("/usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager")]
     readonly Tool SDKManager;
-
+    
     Target Clean => _ => _
         .Before(Restore)
         .Executes(() =>
@@ -78,6 +80,9 @@ partial class Build : NukeBuild
             if (Host is GitHubActions)
             {
                 SDKManager("platform-tools");
+                var keystoreFile = Solution.src.LiftLedger_Mobile.Directory / "liftledger.keystore";
+                keystoreFile.WriteAllBytes(Convert.FromBase64String(EncodedKeystore));
+                Log.Information("keystore file decoded. {Path}", keystoreFile);
             }
 
             DotNetBuild(_ => _

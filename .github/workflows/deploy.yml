@@ -49,3 +49,4 @@ jobs:
         run: ./build.cmd PublishAPI --deployment-suffix prod
         env:
           AzureSPNCreds: ${{ secrets.AZURE_SPNCREDS }}
+          EncodedKeystore: ${{ secrets.ENCODED_KEYSTORE }}
