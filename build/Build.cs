@@ -50,6 +50,9 @@ partial class Build : NukeBuild
     [Parameter("SDK root")]
     readonly AbsolutePath AndroidSdkRoot;
 
+    [PathVariable("/usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager")]
+    readonly Tool SDKManager;
+
     Target Clean => _ => _
         .Before(Restore)
         .Executes(() =>
@@ -74,7 +77,7 @@ partial class Build : NukeBuild
         {
             if (Host is GitHubActions)
             {
-                GitHubActions.Instance.WriteCommand("${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT \"platform-tools\"");
+                SDKManager("--sdk_root=$ANDROID_SDK_ROOT \"platform-tools\"");
             }
 
             DotNetBuild(_ => _
