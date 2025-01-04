@@ -75,6 +75,7 @@ partial class Build
             DotNetPublish(_ => _
                 .SetProject(Solution.src.LiftLedger_API)
                 .DisableSelfContained()
+                .SetConfiguration(Configuration)
                 .SetRuntime("linux-x64")
                 .SetPublishProfile("DefaultContainer")
                 .SetProperty("ContainerRepository", $"lift-ledger-app-{DeploymentSuffix}")

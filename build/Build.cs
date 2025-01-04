@@ -87,6 +87,7 @@ partial class Build : NukeBuild
 
             DotNetBuild(_ => _
                 .EnableNoRestore()
+                .SetConfiguration(Configuration)
                 .SetProjectFile(Solution));
         });
     
@@ -97,6 +98,7 @@ partial class Build : NukeBuild
             DotNetTest(_ => _
                     .EnableNoRestore()
                     .EnableNoBuild()
+                    .SetConfiguration(Configuration)
                     .SetProjectFile(Solution)
                     .When(_=> PublishTestResults, _ => _
                         .SetLoggers("trx")
