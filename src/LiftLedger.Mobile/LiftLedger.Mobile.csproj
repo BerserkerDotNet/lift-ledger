@@ -22,6 +22,7 @@
         <!-- Signing -->
         <AndroidKeyStore>true</AndroidKeyStore>
         <AndroidPackageFormats>apk</AndroidPackageFormats>
+        <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
         <AndroidSigningKeyAlias>thekey</AndroidSigningKeyAlias>
         <AndroidSigningKeyStore>liftledger.keystore</AndroidSigningKeyStore>
         <AndroidSigningKeyPass>env:AndroidSigningPassword</AndroidSigningKeyPass>
