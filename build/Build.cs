@@ -75,6 +75,7 @@ partial class Build : NukeBuild
 
     Target Compile => _ => _
         .DependsOn(Restore)
+        .Produces("**/*.binlog")
         .Executes(() =>
         {
             if (Host is GitHubActions)
@@ -88,7 +89,7 @@ partial class Build : NukeBuild
             DotNetBuild(_ => _
                 .EnableNoRestore()
                 .SetConfiguration(Configuration)
-                .SetVerbosity(DotNetVerbosity.diagnostic)
+                .SetBinaryLog("ledger.binlog")
                 .SetProjectFile(Solution));
         });
     
