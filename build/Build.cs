@@ -25,13 +25,13 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     GitHubActionsImage.UbuntuLatest,
     FetchDepth = 0,
     OnPushBranches = new []{ "master" },
-    ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore)},
+    ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore), nameof(AndroidSigningPassword)},
     InvokedTargets = new[] { nameof(Compile), nameof(Test), nameof(PublishMobile), nameof(PublishAPI) })]
 [GitHubActions(
     "deploy",
     GitHubActionsImage.UbuntuLatest,
     On = new [] { GitHubActionsTrigger.WorkflowDispatch },
-    ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore)},
+    ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore), nameof(AndroidSigningPassword)},
     AutoGenerate = false)]
 partial class Build : NukeBuild
 {
@@ -51,6 +51,10 @@ partial class Build : NukeBuild
     [Secret]
     [Parameter("Base64 encoded keystore")]
     readonly string EncodedKeystore;
+    
+    [Secret]
+    [Parameter("Signing password")]
+    readonly string AndroidSigningPassword;
     
     [PathVariable("/usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager")]
     readonly Tool SDKManager;
