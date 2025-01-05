@@ -41,3 +41,8 @@ jobs:
         env:
           AzureSPNCreds: ${{ secrets.AZURE_SPNCREDS }}
           EncodedKeystore: ${{ secrets.ENCODED_KEYSTORE }}
+      - name: 'Publish: LiftLedger'
+        uses: actions/upload-artifact@v4
+        with:
+          name: LiftLedger
+          path: ~/**/*.binlog
