@@ -31,11 +31,13 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Packages.props') }}
-      - name: 'Run: Compile, Test'
-        run: ./build.cmd Compile Test
-      - name: 'Publish: LiftLedger'
+      - name: 'Run: SetupAndroidSDK, Compile, Test'
+        run: ./build.cmd SetupAndroidSDK Compile Test
+        env:
+          EncodedKeystore: ${{ secrets.ENCODED_KEYSTORE }}
+          AndroidSigningPassword: ${{ secrets.ANDROID_SIGNING_PASSWORD }}
+      - name: 'Publish: artifacts'
         uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: LiftLedger
-          path: ~/**/*.binlog
+          name: artifacts
+          path: artifacts

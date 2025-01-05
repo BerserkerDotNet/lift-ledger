@@ -44,9 +44,15 @@ partial class Build
     Target PublishMobile => _ => _
         .After(Test)
         .DependsOn(Compile)
+        .Produces(ArtifactsDirectory / "*.apk")
         .Executes(() =>
         {
-            DotNet($"publish {Solution.src.LiftLedger_Mobile} -f net9.0-android --no-restore");
+            DotNetPublish(_ => _
+                .SetProject(Solution.src.LiftLedger_Mobile)
+                .SetConfiguration(Configuration)
+                .SetFramework("net9.0-android")
+                .SetOutput(ArtifactsDirectory)
+                .EnableNoRestore());
         });
 
     Target AzLogin => _ => _

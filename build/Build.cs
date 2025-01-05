@@ -19,19 +19,23 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     "pr",
     GitHubActionsImage.UbuntuLatest,
     On = new [] { GitHubActionsTrigger.PullRequest },
-    InvokedTargets = new[] { nameof(Compile), nameof(Test) })]
+    ImportSecrets = new []{ nameof(EncodedKeystore), nameof(AndroidSigningPassword)},
+    InvokedTargets = new[] { nameof(SetupAndroidSDK), nameof(Compile), nameof(Test) })]
 [GitHubActions(
     "continuos",
     GitHubActionsImage.UbuntuLatest,
     FetchDepth = 0,
     OnPushBranches = new []{ "master" },
     ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore), nameof(AndroidSigningPassword)},
-    InvokedTargets = new[] { nameof(Compile), nameof(Test), nameof(PublishMobile), nameof(PublishAPI) })]
+    PublishArtifacts = true,
+    InvokedTargets = new[] { nameof(SetupAndroidSDK), nameof(Compile), nameof(Test), nameof(PublishMobile), nameof(PublishAPI) })]
 [GitHubActions(
     "deploy",
     GitHubActionsImage.UbuntuLatest,
     On = new [] { GitHubActionsTrigger.WorkflowDispatch },
     ImportSecrets = new []{ nameof(AzureSPNCreds), nameof(EncodedKeystore), nameof(AndroidSigningPassword)},
+    InvokedTargets = new[] { nameof(SetupAndroidSDK), nameof(Compile), nameof(Test), nameof(PublishMobile), nameof(PublishAPI) },
+    PublishArtifacts = true,
     AutoGenerate = false)]
 partial class Build : NukeBuild
 {
@@ -67,21 +71,12 @@ partial class Build : NukeBuild
                 .SetProject(Solution));
         });
 
-    Target Restore => _ => _
+    Target SetupAndroidSDK => _ => _
         .Executes(() =>
         {
             DotNetWorkloadRestore(_ => _
                 .SetProject(Solution));
             
-            DotNetRestore(_ => _
-                .SetProjectFile(Solution));
-        });
-
-    Target Compile => _ => _
-        .DependsOn(Restore)
-        .Produces(RootDirectory / "*.binlog")
-        .Executes(() =>
-        {
             if (Host is GitHubActions)
             {
                 SDKManager("platform-tools");
@@ -89,12 +84,31 @@ partial class Build : NukeBuild
                 keystoreFile.WriteAllBytes(Convert.FromBase64String(EncodedKeystore));
                 Log.Information("keystore file decoded. {Path}", keystoreFile);
             }
+        });
+    
+    Target Restore => _ => _
+        .After(SetupAndroidSDK)
+        .Executes(() =>
+        {
+            DotNetRestore(_ => _
+                .SetProjectFile(Solution));
+        });
 
+    Target Compile => _ => _
+        .DependsOn(Restore)
+        .After(SetupAndroidSDK)
+        .Produces(ArtifactsDirectory / "*.binlog")
+        .Executes(() =>
+        {
             DotNetBuild(_ => _
                 .EnableNoRestore()
                 .SetConfiguration(Configuration)
                 .SetBinaryLog("ledger.binlog")
                 .SetProjectFile(Solution));
+            foreach (var binLogFile in Solution.Directory.GlobFiles("*.binlog"))
+            {
+                binLogFile.CopyToDirectory(ArtifactsDirectory / "build-logs", ExistsPolicy.MergeAndOverwrite);
+            }
         });
     
     Target Test => _ => _
@@ -106,8 +120,7 @@ partial class Build : NukeBuild
                     .EnableNoBuild()
                     .SetConfiguration(Configuration)
                     .SetProjectFile(Solution)
-                    .When(_=> PublishTestResults, _ => _
-                        .SetLoggers("trx")
-                        .SetResultsDirectory(ArtifactsDirectory / "test-results")));
+                    .SetLoggers("trx")
+                    .SetResultsDirectory(ArtifactsDirectory / "test-results"));
         });
 }
