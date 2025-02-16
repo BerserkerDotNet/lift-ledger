@@ -31,6 +31,7 @@
         "PublishAPI",
         "PublishMobile",
         "Restore",
+        "SetupAndroidSDK",
         "Test",
         "UpdateAzureContainerApp"
       ]
@@ -110,6 +111,11 @@
           "type": "string",
           "description": "Acr login server"
         },
+        "AndroidSigningPassword": {
+          "type": "string",
+          "description": "Signing password",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
         "AzureSPNCreds": {
           "type": "string",
           "description": "Credentials for Azure SPN",
@@ -126,6 +132,11 @@
         "DeploymentSuffix": {
           "type": "string",
           "description": "Suffix to add to Azure resources"
+        },
+        "EncodedKeystore": {
+          "type": "string",
+          "description": "Base64 encoded keystore",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
         },
         "PreventContainerAppUpdate": {
           "type": "boolean",

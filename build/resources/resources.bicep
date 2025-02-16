@@ -10,6 +10,14 @@ param deploymentSuffix string = 'test'
 @description('Location for the resources.')
 param location string = resourceGroup().location
 
+module monitoring 'monitoring.bicep' = {
+  name: 'lift-ledger-monitoring'
+  params: {
+    deploymentSuffix: deploymentSuffix
+    location: location
+  }
+}
+
 // Container App
 
 resource liftledgerEnv 'Microsoft.App/managedEnvironments@2024-03-01' = {
@@ -29,6 +37,12 @@ resource liftledgerApp 'Microsoft.App/containerApps@2023-05-01' = {
         environmentId: liftledgerEnv.id
         configuration:{
             activeRevisionsMode: 'Single'
+            secrets:[
+                { 
+                    name: 'appinsights-connectionstring'
+                    value: monitoring.outputs.appInsightsConnectionString
+                }
+            ]
             ingress: {
                 external: true
                 transport: 'auto'

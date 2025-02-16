@@ -8,6 +8,7 @@ using Nuke.Common.Execution;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.Coverlet;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Utilities.Collections;
 using Serilog;
@@ -39,7 +40,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     AutoGenerate = false)]
 partial class Build : NukeBuild
 {
-    public static int Main () => Execute<Build>(x => x.Test);
+    public static int Main () => Execute<Build>(x => x.UpdateAzureContainerApp);
 
     [Solution(GenerateProjects = true)]
     readonly Solution Solution;
@@ -120,6 +121,8 @@ partial class Build : NukeBuild
                     .EnableNoBuild()
                     .SetConfiguration(Configuration)
                     .SetProjectFile(Solution)
+                    .EnableCollectCoverage()
+                    .SetCoverletOutput("cobertura")
                     .SetLoggers("trx")
                     .SetResultsDirectory(ArtifactsDirectory / "test-results"));
         });

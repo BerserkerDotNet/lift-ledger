@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text.Json;
+using System.Web;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.GitHubActions;
@@ -59,13 +60,16 @@ partial class Build
         .After(Test)
         .Requires(() => AzCli)
         .Requires(() => AcrServer)
-        .Requires(() => AzureSPNCreds)
+        .Requires(() => !(Host is GitHubActions) || AzureSPNCreds != null)
         .Executes(() =>
         {
-            var creds = JsonSerializer.Deserialize<AzureSPNCredentials>(AzureSPNCreds, new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
-            
-            AzCli($"login --service-principal -t {creds.TenantId} -u {creds.ClientId} -p {creds.ClientSecret}");
-            AzCli($"account set -s {creds.SubscriptionId}");
+            if (Host is GitHubActions)
+            {
+                var creds = JsonSerializer.Deserialize<AzureSPNCredentials>(AzureSPNCreds, new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
+                AzCli($"login --service-principal -t {creds.TenantId} -u {creds.ClientId} -p {creds.ClientSecret}");
+                AzCli($"account set -s {creds.SubscriptionId}");
+            }
+
             AzCli($"acr login -n {AcrServer}");
         });
     
@@ -98,7 +102,7 @@ partial class Build
         {
             var containerAppName = $"lift-ledger-app-{DeploymentSuffix}";
             AzCli("config set extension.use_dynamic_install=yes_without_prompt");
-            AzCli($"containerapp up --name {containerAppName} --registry-server {AcrServer} --image {AcrServer}/{containerAppName}:latest");
+            AzCli($"containerapp up --name {containerAppName} --registry-server {AcrServer} --image {AcrServer}/{containerAppName}:latest --env-vars APPLICATIONINSIGHTS_CONNECTION_STRING=secretref:appinsights-connectionstring");
         });
     
     Target ProvisionAzureResources => _ => _
