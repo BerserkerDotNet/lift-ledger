@@ -1,10 +1,17 @@
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using LiftLedger.API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+
+builder.Services.AddAuthorization();
+
 builder.Services.AddGrpc();
 builder.Services.AddOpenTelemetry()
     .UseAzureMonitor();
@@ -12,7 +19,13 @@ builder.Services.AddOpenTelemetry()
 using var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.MapGrpcService<GreeterService>();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapGrpcService<GreeterService>()
+    .RequireAuthorization();
+
 app.MapGet("/", ([FromServices]ILogger<GreeterService> logger) =>
 {
     using (logger.BeginScope("FOOOOO"))

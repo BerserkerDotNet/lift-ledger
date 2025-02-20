@@ -1,5 +1,6 @@
 using Grpc.Core;
 using LiftLedger.API;
+using Microsoft.Identity.Web;
 
 namespace LiftLedger.API.Services;
 
@@ -15,7 +16,7 @@ public class GreeterService : Greeter.GreeterBase
     {
         return Task.FromResult(new HelloReply
         {
-            Message = "Hello " + request.Name
+            Message = $"Hello {context.GetHttpContext().User.GetDisplayName()}"
         });
     }
 }

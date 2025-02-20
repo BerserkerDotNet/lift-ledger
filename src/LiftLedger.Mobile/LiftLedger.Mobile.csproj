@@ -13,7 +13,7 @@
         <ApplicationTitle>Lift Ledger</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.liftledger</ApplicationId>
+        <ApplicationId>com.andriisnihyr.liftledger</ApplicationId>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -28,7 +28,7 @@
         <AndroidSigningKeyPass>env:AndroidSigningPassword</AndroidSigningKeyPass>
         <AndroidSigningStorePass>env:AndroidSigningPassword</AndroidSigningStorePass>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">32.0</SupportedOSPlatformVersion>
-        
+
         <!--<AcceptAndroidSDKLicenses>True</AcceptAndroidSDKLicenses>
         <AndroidSdkPath>%LocalAppData%\Android\Sdk</AndroidSdkPath>
         <AndroidSdkDirectory>%LocalAppData%\Android\Sdk</AndroidSdkDirectory>-->
@@ -55,11 +55,34 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0"/>
-        <PackageReference Include="Azure.Monitor.OpenTelemetry.Exporter" Version="1.3.0" />
+        <PackageReference Include="Azure.Monitor.OpenTelemetry.Exporter" Version="1.3.0"/>
+        <PackageReference Include="Microsoft.Identity.Client" Version="4.68.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.2"/>
+        <PackageReference Include="Grpc.Net.Client" Version="2.67.0"/>
+        <PackageReference Include="Google.Protobuf" Version="3.29.3" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.11.0-beta.1" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.11.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.69.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LiftLedger.App\LiftLedger.App.csproj" />
+        <ProjectReference Include="..\LiftLedger.App\LiftLedger.App.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="appsettings.json"/>
+        <EmbeddedResource Include="appsettings.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="..\Protos\greet.proto" GrpcServices="Client">
+            <Link>Protos\greet.proto</Link>
+        </Protobuf>
     </ItemGroup>
 
 </Project>
